@@ -1,0 +1,26 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "services": [
+    {
+      "name": "backend",
+      "root": "backend/votingapp",
+      "buildCommand": "./mvnw clean package -DskipTests",
+      "startCommand": "java -jar target/*.jar",
+      "envs": [
+        "MYSQLHOST",
+        "MYSQLPORT",
+        "MYSQLDATABASE",
+        "MYSQLUSER",
+        "MYSQLPASSWORD",
+        "PORT"
+      ]
+    },
+    {
+      "name": "frontend",
+      "root": "frontend/poll-app",
+      "buildCommand": "npm install && npm run build:prod",
+      "startCommand": "npx serve -s dist/poll-app/browser -l ${PORT}",
+      "envs": ["PORT"]
+    }
+  ]
+}
