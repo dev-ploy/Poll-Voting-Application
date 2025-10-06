@@ -57,9 +57,9 @@ vercel --prod
 # Clone repository
 git clone <your-repo-url>
 cd poll-app
+npm install
 
 # Install dependencies
-npm install
 
 # Start development server
 npm start
@@ -74,7 +74,7 @@ npm start
 cd backend
 
 # Update application.properties
-spring.datasource.url=jdbc:mysql://localhost:3306/polldb
+spring.datasource.url=jdbc:mysql://localhost:3306/votingapp
 spring.datasource.username=root
 spring.datasource.password=yourpassword
 
