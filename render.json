@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "build": {
+    "command": "cd frontend/poll-app && npm install && npm run build:prod"
+  },
+  "static": {
+    "directory": "frontend/poll-app/dist/poll-app/browser"
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

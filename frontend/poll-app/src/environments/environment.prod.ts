@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://your-backend.onrender.com/api/polls'  // Update with your Render backend URL
+  apiUrl: 'https://poll-voting-backend.onrender.com'  // Will be updated with actual Render URL
 };
