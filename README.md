@@ -2,22 +2,41 @@
 
 A modern, full-stack voting application built with Angular and Spring Boot, allowing users to create polls and vote in real-time.
 
-## 🚀 Quick Deploy (5 minutes)
+## 🚀 Quick Deploy Options
 
+### Option 1: AWS (Recommended for Production)
 ```bash
-# 1. Deploy backend to Render (FREE)
-# Sign up at render.com → New Web Service → Connect GitHub
-# Add MySQL database → Copy DATABASE_URL
+# Complete AWS deployment with RDS MySQL + Elastic Beanstalk + S3
+# FREE for 12 months with AWS Free Tier
 
-# 2. Update environment
-# Edit src/environments/environment.prod.ts with your Render URL
+# 📖 Read: AWS-QUICKSTART.md (30 minutes)
+# 📖 Or: AWS-DEPLOYMENT-GUIDE.md (complete guide)
 
-# 3. Deploy frontend to Vercel (FREE)
+# Quick start:
+.\setup-aws-tools.ps1    # Install AWS CLI
+aws configure            # Setup credentials
+eb init                  # Initialize Elastic Beanstalk
+eb create               # Create environment
+.\deploy-aws.ps1        # Automated deployment
+```
+
+### Option 2: Render (Free Hosting)
+```bash
+# Deploy to Render.com (FREE)
+# 📖 See: Render deployment section below
+
+# 1. Create MySQL on Railway.app (FREE)
+# 2. Deploy backend to Render
+# 3. Deploy frontend to Render Static Site
+```
+
+### Option 3: Vercel + Railway (Quick & Free)
+```bash
+# Frontend: Vercel, Backend: Railway, DB: Railway MySQL
+
 npm install -g vercel
-vercel login
-vercel --prod
-
-# Done! Your app is live 🎉
+vercel --prod            # Deploy frontend
+# Configure backend on Railway.app
 ```
 
 ## 🚀 Tech Stack
@@ -83,6 +102,59 @@ spring.datasource.password=yourpassword
 
 # Backend runs at http://localhost:8080
 ```
+
+## ☁️ AWS Deployment Guide
+
+Complete AWS deployment documentation is available:
+
+| Document | Purpose | Time Required |
+|----------|---------|---------------|
+| 📖 **[AWS-GET-STARTED.md](AWS-GET-STARTED.md)** | Overview & getting started | 5 min read |
+| 🏃 **[AWS-QUICKSTART.md](AWS-QUICKSTART.md)** | Fast deployment guide | 30 min |
+| 📚 **[AWS-DEPLOYMENT-GUIDE.md](AWS-DEPLOYMENT-GUIDE.md)** | Complete step-by-step | 1-2 hours |
+| 📋 **[AWS-DEPLOYMENT-SUMMARY.md](AWS-DEPLOYMENT-SUMMARY.md)** | Reference & commands | Quick lookup |
+
+### AWS Architecture
+```
+Frontend (S3 + CloudFront) → Backend (Elastic Beanstalk) → Database (RDS MySQL)
+```
+
+### AWS Services Used
+- **RDS MySQL** - Managed database (FREE tier: 750 hours/month)
+- **Elastic Beanstalk** - Backend deployment (FREE tier: 750 hours/month)
+- **S3** - Frontend hosting (FREE tier: 5GB storage)
+- **CloudFront** - CDN for frontend (optional)
+
+### Quick AWS Commands
+```powershell
+# Install AWS tools
+.\setup-aws-tools.ps1
+
+# Configure AWS
+aws configure
+
+# Deploy (after setup)
+.\deploy-aws.ps1
+```
+
+### AWS Cost
+- **Free Tier (12 months)**: $0/month
+- **After Free Tier**: ~$23/month (without CloudFront)
+
+📖 **Start Here**: [AWS-GET-STARTED.md](AWS-GET-STARTED.md)
+
+---
+
+## 🌐 Render Deployment Guide
+
+For Render deployment instructions, see the Render section below or follow these guides:
+- Backend deployment on Render
+- MySQL database on Railway
+- Frontend on Render Static Site
+
+Complete Render deployment instructions are included in this README (see Render section).
+
+---
 
 ## 📁 Project Structure
 
